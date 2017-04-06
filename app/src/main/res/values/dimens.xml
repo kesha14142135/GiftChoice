@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="titleSize">22sp</dimen>
+    <dimen name="titleMarginLeft">50dp</dimen>
+    <dimen name="appBarHeight">50dp</dimen>
+    <dimen name="elevationAppBar">4dp</dimen>
+    <dimen name="expandedMarginEnd">64dp</dimen>
+    <dimen name="expandedMarginStart">48dp</dimen>
+    <dimen name="layoutMarginFloatingButton">16dp</dimen>
+    <dimen name="cardViewMargin">10dp</dimen>
+    <dimen name="button_card_height_test">40dp</dimen>
+    <dimen name="button_card_width_test">60dp</dimen>
+    <dimen name="image_width">45dp</dimen>
+    <dimen name="image_height">45dp</dimen>
+    <dimen name="marginTopName">10dp</dimen>
+    <dimen name="nameSize">18sp</dimen>
+    <dimen name="secondTextSize">10sp</dimen>
+    <dimen name="buttonCardWidthGift">26dp</dimen>
+    <dimen name="buttonCardHeightGift">26dp</dimen>
+    <dimen name="dialogButtonTop">10dp</dimen>
+    <dimen name="textToolbarDialog">20sp</dimen>
+    <dimen name="textButtonDialog">18sp</dimen>
+    <dimen name="button_card_height_gift">30dp</dimen>
+</resources>

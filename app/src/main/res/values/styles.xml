@@ -1,0 +1,47 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <style name="SansSerifStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="ToolbarDialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="ToolbarTextDialog">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/textToolbarDialog</item>
+    </style>
+
+    <style name="ButtonDialogUpdate">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:textSize">@dimen/textButtonDialog</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="DividerDatePicker" parent="android:Widget.ListView.DropDown">
+        <item name="android:divider">#00ff00</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+</resources>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GiftChoice</string>
+    <string name="title_name">Person</string>
+    <string name="there_are_no_created_people">There are no created people yet</string>
+    <string name="user_list_is_empty">User list is empty</string>
+    <string name="name_girl">Person name</string>
+    <string name="day_person">10 april</string>
+    <string name="text_test">Test</string>
+    <string name="text_toolbar_birthday">Specify date of birth</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="add_button">Ok</string>
+    <string name="title_gift">Gift</string>
+    <plurals name="review_day_string">
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дня</item>
+        <item quantity="many">%d дней</item>
+        <item quantity="other">%d дней</item>
+    </plurals>
+</resources>

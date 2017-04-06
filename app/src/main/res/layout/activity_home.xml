@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context="ginteam.com.giftchoice.view.activity.PersonsActivity"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <include
+        android:id="@+id/toolbar_home"
+        layout="@layout/toolbar"
+        app:layout_scrollFlags="scroll|enterAlways" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout_home"
+        android:layout_width="match_parent"
+        android:background="@color/colorWhite"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <TextView
+            android:id="@+id/text_view_empty_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/there_are_no_created_people"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:id="@+id/appbar_home"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--app:elevation="@dimen/elevationAppBar">-->
+
+        <!--<android.support.design.widget.CollapsingToolbarLayout-->
+        <!--android:id="@+id/collapsing_toolbar_home"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--app:contentScrim="?attr/colorPrimary"-->
+        <!--app:expandedTitleMarginEnd="@dimen/expandedMarginEnd"-->
+        <!--app:expandedTitleMarginStart="@dimen/expandedMarginStart"-->
+        <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
+
+        <!---->
+        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
+        <!--</android.support.design.widget.AppBarLayout>-->
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating_action_button_add_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="@dimen/layoutMarginFloatingButton"
+            android:src="@drawable/ic_add_white"
+            app:layout_anchorGravity="bottom|right|end" />
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

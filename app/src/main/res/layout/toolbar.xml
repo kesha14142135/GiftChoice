@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways">
+
+        <ImageView
+            android:layout_width="@dimen/buttonCardWidthGift"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_gift_white" />
+
+        <TextView
+            android:id="@+id/text_view_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/button_card_height_gift"
+            android:gravity="center_vertical"
+            android:text="@string/title_gift"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/titleSize" />
+
+    </android.support.v7.widget.Toolbar>
+
+</LinearLayout>

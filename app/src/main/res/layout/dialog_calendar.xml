@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar style="@style/ToolbarDialog">
+
+        <TextView
+            android:id="@+id/text_view_calendar_title"
+            style="@style/ToolbarTextDialog"
+            android:text="@string/text_toolbar_birthday" />
+    </android.support.v7.widget.Toolbar>
+
+    <DatePicker
+        android:id="@+id/date_picker_update_birthday"
+        style="@style/DividerDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"></DatePicker>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/dialogButtonTop"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancel_update_birthday"
+            style="@style/ButtonDialogUpdate"
+            android:text="@string/cancel_button"
+            android:textColor="@color/colorText"/>
+
+        <Button
+            android:id="@+id/button_add_update_birthday"
+            style="@style/ButtonDialogUpdate"
+            android:layout_toRightOf="@+id/button_cancel_update_birthday"
+            android:text="@string/add_button" />
+    </RelativeLayout>
+</LinearLayout>

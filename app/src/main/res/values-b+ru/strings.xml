@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Gift</string>
+    <string name="title_name">Персона</string>
+    <string name="there_are_no_created_people">Еще не добавлено ни одного человека</string>
+    <string name="user_list_is_empty">Данные в базе отсутствуют</string>
+    <string name="name_girl">Имя человека</string>
+    <string name="day_person">10 апреля</string>
+    <string name="text_test">Тест</string>
+    <string name="text_toolbar_birthday">Укажите дату рождения</string>
+    <string name="cancel_button">Закрыть</string>
+    <string name="add_button">Ok</string>
+    <string name="title_gift">Подарок</string>
+    <plurals name="review_day_string">
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дня</item>
+        <item quantity="many">%d дней</item>
+        <item quantity="other">%d дней</item>
+    </plurals>
+</resources>
