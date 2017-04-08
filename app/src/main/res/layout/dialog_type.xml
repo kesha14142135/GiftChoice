@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar style="@style/ToolbarDialog">
+
+        <TextView
+            android:id="@+id/text_view_type_title"
+            style="@style/ToolbarTextDialog"
+            android:text="@string/text_toolbar_type" />
+    </android.support.v7.widget.Toolbar>
+
+    <RadioGroup
+        android:id="@+id/radio_group_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radio_button_man"
+            style="@style/RadioButtonInDialog"
+            android:checked="true"
+            android:text="@string/type_man" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radio_button_woman"
+            style="@style/RadioButtonInDialog"
+            android:text="@string/type_women" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/radio_button_child"
+            style="@style/RadioButtonInDialog"
+            android:text="@string/type_child" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/dialogButtonTop"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancel_type_person"
+            style="@style/ButtonDialogUpdate"
+            android:text="@string/cancel_button"
+            android:textColor="@color/colorText"/>
+
+        <Button
+            android:id="@+id/button_add_type_person"
+            style="@style/ButtonDialogUpdate"
+            android:layout_toRightOf="@+id/button_cancel_type_person"
+            android:text="@string/add_button" />
+    </RelativeLayout>
+</LinearLayout>

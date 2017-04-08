@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_layout_add_person"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLayoutAddPerson"
+        android:layout_marginRight="@dimen/marginLayoutAddPerson"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_text_view_title">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/imageTitleHeight"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back" />
+
+            <Button
+                android:id="@+id/button_add_person"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:fontFamily="sans-serif"
+                android:gravity="right|center_vertical"
+                android:minWidth="@dimen/button_cancel_width"
+                android:text="@string/cancel_button"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginBottomTitle"
+            android:layout_marginTop="@dimen/marginTopTitle"
+            android:text="@string/text_title_add_person"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/titleSizeAddPerson" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_name_person"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorWhite"
+            app:hintTextAppearance="@style/TextInputColor">
+
+            <EditText
+                android:id="@+id/edit_text_person_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/person_name"
+                android:minHeight="@dimen/minHeightEditTTextPerson"
+                android:textColor="@color/colorWhite" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_person_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorWhite"
+            app:hintTextAppearance="@style/TextInputColor">
+
+            <EditText
+                android:id="@+id/edit_text_person_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/person_type"
+                android:minHeight="@dimen/minHeightEditTTextPerson"
+                android:textColor="@color/colorWhite" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_person_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorWhite"
+            app:hintTextAppearance="@style/TextInputColor">
+
+            <EditText
+                android:id="@+id/edit_text_person_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/person_birthday"
+                android:minHeight="@dimen/minHeightEditTTextPerson"
+                android:textColor="@color/colorWhite" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_add_person_start_test"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_add_person"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/button_margin_add_person"
+        android:background="@drawable/button_border_color"
+        android:fontFamily="sans-serif"
+        android:text="@string/button_start_test"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/titleSize"
+        android:textStyle="normal"
+        android:typeface="sans" />
+</RelativeLayout>

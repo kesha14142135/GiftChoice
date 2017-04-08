@@ -15,7 +15,7 @@ public class Person extends SugarRecord{
     private int mId;
 
     public Person() {
-        this("Name", 0, 0, 0, 0, 1940, -1);
+        this("", 0, 0, 0, 0, 1940, -1);
     }
 
     public Person(String name, int type, int passedTheTest, int day, int month, int year, int id) {

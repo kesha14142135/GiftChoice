@@ -20,5 +20,18 @@
     <dimen name="dialogButtonTop">10dp</dimen>
     <dimen name="textToolbarDialog">20sp</dimen>
     <dimen name="textButtonDialog">18sp</dimen>
+    <dimen name="textButtonDialogCalendar">14sp</dimen>
     <dimen name="button_card_height_gift">30dp</dimen>
+    <dimen name="height_text_view">40dp</dimen>
+    <dimen name="height_text_view_title">40dp</dimen>
+    <dimen name="button_cancel_width">100dp</dimen>
+    <dimen name="title_margin_right">10dp</dimen>
+    <dimen name="titleSizeAddPerson">30sp</dimen>
+    <dimen name="marginLayoutAddPerson">16dp</dimen>
+    <dimen name="button_height_add_person">60dp</dimen>
+    <dimen name="button_margin_add_person">20dp</dimen>
+    <dimen name="imageTitleHeight">25dp</dimen>
+    <dimen name="minHeightEditTTextPerson">60dp</dimen>
+    <dimen name="marginTopTitle">30dp</dimen>
+    <dimen name="marginBottomTitle">20dp</dimen>
 </resources>

@@ -47,41 +47,26 @@ public class PersonsActivity extends AppCompatActivity implements View.OnClickLi
         mFloatingButton.setOnClickListener(this);
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_home);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (recyclerView.getVisibility() == View.VISIBLE && dy > 0) {
-                    mFloatingButton.hide();
-                } else if (recyclerView.getVisibility() == View.VISIBLE && dy < 0) {
-                    mFloatingButton.show();
-                }
-                super.onScrolled(recyclerView, dx, dy);
-            }
-        });
         mPresenter = new PersonsPresenter();
         mPresenter.attachView(this);
         mPresenter.getPersons();
     }
 
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.floating_action_button_add_home: {
-
-                        break;
-                    }
-                }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.floating_action_button_add_home: {
+                Intent intent = new Intent(getContext(), NewPerson.class);
+                getContext().startActivity(intent);
+                break;
             }
+        }
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
-      //  mPresenter.getPersons();
+        mPresenter.getPersons();
     }
 
     @Override
@@ -99,8 +84,8 @@ public class PersonsActivity extends AppCompatActivity implements View.OnClickLi
     public void showPersons(List<Person> persons) {
 
         List<Person> persons1 = new ArrayList<>();
-        persons1.add(new Person("Саша Муравей",0,0,10,3,1994,0));
-        persons1.add(new Person("Алина Праведная",1,1,10,3,1994,1));
+        persons1.add(new Person("Саша Муравей", 0, 0, 10, 3, 1994, 0));
+        persons1.add(new Person("Алина Праведная", 1, 1, 10, 3, 1994, 1));
         //do not forgot about this line
         List<Person> personsRevers = Lists.reverse(persons);
         mAdapter = new PersonsAdapter(persons1, getContext(), new CallBackPerson() {

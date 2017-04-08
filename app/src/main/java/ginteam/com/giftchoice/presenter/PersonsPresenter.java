@@ -19,11 +19,6 @@ public class PersonsPresenter implements PersonsContract.Presenter {
     private PersonsDataSource mPersonsDataSource;
 
     @Override
-    public void addPerson(String name, int type) {
-        mPersonsDataSource.addPerson(new Person(name, type, 0, -1, -1, -1, 0));
-    }
-
-    @Override
     public void getPersons() {
         List<Person> person = new ArrayList<>();
        mView.showPersons(person);

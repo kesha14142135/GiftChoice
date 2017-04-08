@@ -10,10 +10,29 @@
     <string name="cancel_button">Cancel</string>
     <string name="add_button">Ok</string>
     <string name="title_gift">Gift</string>
+    <string name="person_name">Person name</string>
+    <string name="person_type">Person type</string>
+    <string name="person_birthday">Person birthday</string>
+    <string name="text_title_add_person">Enter user details</string>
+    <string name="number_dialog">dialog</string>
+    <string name="button_start_test">Start test</string>
+    <string name="type_man">Man</string>
+    <string name="type_women">Women</string>
+    <string name="type_child">Child</string>
+    <string name="text_toolbar_type">Type person</string>
+    <string name="error_fill_on_the_field">Please, fill on the all field</string>
+
+    <string-array name="type">
+        <item name="man">Man</item>
+        <item name="women">Women</item>
+        <item name="child">Child</item>
+    </string-array>
+
     <plurals name="review_day_string">
         <item quantity="one">%d день</item>
         <item quantity="few">%d дня</item>
         <item quantity="many">%d дней</item>
         <item quantity="other">%d дней</item>
     </plurals>
+
 </resources>

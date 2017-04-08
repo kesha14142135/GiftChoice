@@ -35,6 +35,9 @@
         <activity
             android:name=".view.activity.PersonsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.NewPerson"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

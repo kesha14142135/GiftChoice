@@ -36,7 +36,7 @@
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_gravity">right</item>
-        <item name="android:textSize">@dimen/textButtonDialog</item>
+        <item name="android:textSize">@dimen/textButtonDialogCalendar</item>
         <item name="android:background">@color/colorWhite</item>
     </style>
 
@@ -44,4 +44,20 @@
         <item name="android:divider">#00ff00</item>
         <item name="android:dividerHeight">1dp</item>
     </style>
+
+    <style name="TextInputColor" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="RadioButtonInDialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/radioButtonDialog</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <dimen name="radioButtonDialog">10dp</dimen>
 </resources>
