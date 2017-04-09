@@ -56,7 +56,7 @@ public class PersonsActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.floating_action_button_add_home: {
-                Intent intent = new Intent(getContext(), NewPerson.class);
+                Intent intent = new Intent(getContext(), NewPersonActivity.class);
                 getContext().startActivity(intent);
                 break;
             }
@@ -82,13 +82,7 @@ public class PersonsActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void showPersons(List<Person> persons) {
-
-        List<Person> persons1 = new ArrayList<>();
-        persons1.add(new Person("Саша Муравей", 0, 0, 10, 3, 1994, 0));
-        persons1.add(new Person("Алина Праведная", 1, 1, 10, 3, 1994, 1));
-        //do not forgot about this line
-        List<Person> personsRevers = Lists.reverse(persons);
-        mAdapter = new PersonsAdapter(persons1, getContext(), new CallBackPerson() {
+        mAdapter = new PersonsAdapter(Lists.reverse(persons), getContext(), new CallBackPerson() {
             @Override
             public void successTest(int id, int type) {
 

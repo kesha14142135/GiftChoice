@@ -10,19 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data
-            android:name="DATABASE"
-            android:value="gift_choice.db" />
-        <meta-data
-            android:name="VERSION"
-            android:value="2" />
-        <meta-data
-            android:name="QUERY_LOG"
-            android:value="true" />
-        <meta-data
-            android:name="DOMAIN_PACKAGE_NAME"
-            android:value="com.example" />
-
         <activity
             android:name=".view.activity.SplashActivity"
             android:screenOrientation="portrait"
@@ -36,7 +23,7 @@
             android:name=".view.activity.PersonsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.NewPerson"
+            android:name=".view.activity.NewPersonActivity"
             android:screenOrientation="portrait" />
     </application>
 

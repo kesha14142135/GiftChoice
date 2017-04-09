@@ -42,16 +42,16 @@ public class TypeDialogFragment extends DialogFragment implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_add_type_person: {
-                int type = 1;
+                int type = 0;
                 switch (mRadioGroup.getCheckedRadioButtonId()) {
                     case R.id.radio_button_man:
-                        type = 1;
+                        type = 0;
                         break;
                     case R.id.radio_button_woman:
-                        type = 2;
+                        type = 1;
                         break;
                     case R.id.radio_button_child:
-                        type = 3;
+                        type = 2;
                         break;
                 }
                 CallBackPersonType activity = (CallBackPersonType) getActivity();

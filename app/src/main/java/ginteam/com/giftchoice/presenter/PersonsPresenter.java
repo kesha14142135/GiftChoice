@@ -1,5 +1,7 @@
 package ginteam.com.giftchoice.presenter;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,18 +18,29 @@ import ginteam.com.giftchoice.model.Person;
 public class PersonsPresenter implements PersonsContract.Presenter {
 
     private PersonsContract.View mView;
-    private PersonsDataSource mPersonsDataSource;
+    private Context mContext;
+    private PersonsDataSource mDatabase;
 
     @Override
     public void getPersons() {
-        List<Person> person = new ArrayList<>();
-       mView.showPersons(person);
+        mDatabase.readAll(new PersonsDataSource.CallbackPersons() {
+            @Override
+            public void onSuccess(List<Person> persons) {
+                mView.showPersons(persons);
+            }
+
+            @Override
+            public void onFailure() {
+                mView.showError(mContext.getResources().getString(R.string.error_reading_user));
+            }
+        });
     }
 
     @Override
     public void attachView(PersonsContract.View view) {
         mView = view;
-        mPersonsDataSource = new PersonsDataBaseSource(mView.getContext());
+        mContext = view.getContext();
+        mDatabase = new PersonsDataBaseSource(mView.getContext());
     }
 
     @Override

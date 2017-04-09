@@ -19,12 +19,14 @@
             android:layout_height="@dimen/height_text_view_title">
 
             <ImageView
+                android:id="@+id/image_back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/imageTitleHeight"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_back" />
 
             <Button
+                style="?android:attr/borderlessButtonStyle"
                 android:id="@+id/button_add_person"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -45,7 +47,9 @@
             android:layout_marginTop="@dimen/marginTopTitle"
             android:text="@string/text_title_add_person"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/titleSizeAddPerson" />
+            android:textSize="@dimen/titleSizeAddPerson"
+
+            />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/text_input_name_person"
@@ -58,6 +62,7 @@
                 android:id="@+id/edit_text_person_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:cursorVisible="true"
                 android:hint="@string/person_name"
                 android:minHeight="@dimen/minHeightEditTTextPerson"
                 android:textColor="@color/colorWhite" />

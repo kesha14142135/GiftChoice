@@ -2,14 +2,13 @@ package ginteam.com.giftchoice.view.activity;
 
 import android.app.DialogFragment;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import java.text.SimpleDateFormat;
@@ -26,7 +25,7 @@ import ginteam.com.giftchoice.view.fragment.dialog.TypeDialogFragment;
 import ginteam.com.giftchoice.view.fragment.dialog.CalendarDialogFragment;
 
 
-public class NewPerson extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener, CallBackPersonBirthday, CallBackPersonType, NewPersonContract.View {
+public class NewPersonActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener, CallBackPersonBirthday, CallBackPersonType, NewPersonContract.View {
 
     private RelativeLayout mRelativeLayout;
     private Button mButtonAddPersonStartTest;
@@ -38,12 +37,14 @@ public class NewPerson extends AppCompatActivity implements View.OnClickListener
     private DialogFragment mTypeDialogFragment;
     private Person mPerson;
     private NewPersonContract.Presenter mPresenter;
+    private ImageView mImageBackButton;
+    private boolean mFlagTest = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_add_person);
+        setContentView(R.layout.activity_new_person);
         mPerson = new Person();
         initializationOfVariables();
         mPresenter = new NewPersonPresenter();
@@ -58,18 +59,16 @@ public class NewPerson extends AppCompatActivity implements View.OnClickListener
         mButtonAddPersonStartTest = (Button) findViewById(R.id.button_add_person_start_test);
         mButtonAddPersonStartTest.setOnClickListener(this);
         mEditTextName = (EditText) findViewById(R.id.edit_text_person_name);
-
+        mImageBackButton = (ImageView) findViewById(R.id.image_back_button);
+        mImageBackButton.setOnClickListener(this);
         mEditTextType = (EditText) findViewById(R.id.edit_text_person_type);
         mEditTextType.setOnFocusChangeListener(this);
         mEditTextType.setOnClickListener(this);
-
         mEditTextBirthday = (EditText) findViewById(R.id.edit_text_person_birthday);
         mEditTextBirthday.setOnFocusChangeListener(this);
         mEditTextBirthday.setOnClickListener(this);
-
         mCalendarDialogFragment = CalendarDialogFragment.newInstance();
         mCalendarDialogFragment.setStyle(R.style.CardView, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
-
         mTypeDialogFragment = TypeDialogFragment.newInstance();
         mTypeDialogFragment.setStyle(R.style.CardView, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
     }
@@ -84,6 +83,10 @@ public class NewPerson extends AppCompatActivity implements View.OnClickListener
                 );
                 break;
             }
+            case R.id.image_back_button: {
+                onBackPressed();
+                break;
+            }
             case R.id.edit_text_person_birthday: {
                 mCalendarDialogFragment.show(
                         getFragmentManager(),
@@ -92,10 +95,13 @@ public class NewPerson extends AppCompatActivity implements View.OnClickListener
                 break;
             }
             case R.id.button_add_person_start_test: {
+                mFlagTest = true;
+                mPerson.setName(mEditTextName.getText().toString());
                 mPresenter.addPerson(mPerson);
                 break;
             }
             case R.id.button_add_person: {
+                mPerson.setName(mEditTextName.getText().toString());
                 mPresenter.addPerson(mPerson);
                 break;
             }
@@ -127,7 +133,8 @@ public class NewPerson extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onFinishTypeDialog(int type) {
-        mEditTextType.setText(type);
+        String[] typeRes = getResources().getStringArray(R.array.type);
+        mEditTextType.setText(typeRes[type]);
         mPerson.setType(type);
     }
 
@@ -138,7 +145,7 @@ public class NewPerson extends AppCompatActivity implements View.OnClickListener
         mEditTextBirthday.setText(format.format(calendar.getTime()));
         mPerson.setDay(day);
         mPerson.setMonth(month);
-        mPerson.setDay(year);
+        mPerson.setYear(year);
     }
 
     @Override
@@ -154,7 +161,11 @@ public class NewPerson extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void successfulAddition() {
-
+        if (mFlagTest) {
+            //redirect to screen test
+        } else {
+            onBackPressed();
+        }
     }
 }
 

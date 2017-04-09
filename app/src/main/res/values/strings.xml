@@ -21,6 +21,8 @@
     <string name="type_child">Child</string>
     <string name="text_toolbar_type">Type person</string>
     <string name="error_fill_on_the_field">Please, fill on the all field</string>
+    <string name="error_сould_not_add_user_to_database">Could not add user to database</string>
+    <string name="error_reading_user">Error reading users</string>
 
     <string-array name="type">
         <item name="man">Man</item>

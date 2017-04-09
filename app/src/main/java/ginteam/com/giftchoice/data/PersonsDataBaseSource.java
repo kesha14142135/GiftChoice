@@ -21,8 +21,13 @@ public class PersonsDataBaseSource implements PersonsDataSource {
     }
 
     @Override
-    public void readAll(PersonsCallback callback) {
-        //List<Person> persons = Person.listAll(Person.class);
+    public void readAll(CallbackPersons callback) {
+        try {
+            List<Person> persons = Person.listAll(Person.class);
+            callback.onSuccess(persons);
+        }catch (Exception e){
+            callback.onFailure();
+        }
     }
 
     @Override

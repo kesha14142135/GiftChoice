@@ -10,11 +10,11 @@ import ginteam.com.giftchoice.model.Person;
 
 public interface PersonsDataSource {
 
-    void readAll(PersonsCallback callback);
+    void readAll(CallbackPersons callback);
 
     void addPerson(Person Person);
 
-    interface PersonsCallback {
+    interface CallbackPersons {
 
         void onSuccess(List<Person> persons);
 

@@ -21,6 +21,13 @@
     <string name="type_child">Ребенок</string>
     <string name="text_toolbar_type">Тип человека</string>
     <string name="error_fill_on_the_field">Пожалуйста, заполните все поля</string>
+
+    <string-array name="type">
+        <item name="man">Мужчина</item>
+        <item name="women">Женщина</item>
+        <item name="child">Ребенок</item>
+    </string-array>
+
     <plurals name="review_day_string">
         <item quantity="one">%d день</item>
         <item quantity="few">%d дня</item>

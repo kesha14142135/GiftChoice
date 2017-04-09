@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -56,8 +57,14 @@ public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.PersonVi
                 holder.mImageViewPerson.setImageResource(R.drawable.ic_baby);
                 break;
         }
-        holder.mTextViewBirthday.setText("10 апреля");
-        if(mPersons.get(position).getPassedTheTest()==0) {
+        Calendar calendar = new GregorianCalendar(
+                mPersons.get(position).getYear(),
+                mPersons.get(position).getMonth(),
+                mPersons.get(position).getDay()
+        );
+        SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
+        holder.mTextViewBirthday.setText(format.format(calendar.getTime()));
+        if (mPersons.get(position).getPassedTheTest() == 0) {
             holder.mButtonTestPerson.setVisibility(View.VISIBLE);
             holder.mButtonTestPerson.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,7 +73,7 @@ public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.PersonVi
                 }
             });
             holder.mButtonGiftPerson.setVisibility(View.INVISIBLE);
-        }else {
+        } else {
             holder.mButtonTestPerson.setVisibility(View.INVISIBLE);
             holder.mButtonGiftPerson.setVisibility(View.VISIBLE);
             holder.mButtonGiftPerson.setOnClickListener(new View.OnClickListener() {
