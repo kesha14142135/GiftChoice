@@ -67,12 +67,19 @@
         <item name="dividerHorizontal">@color/colorTextOpacity</item>
         <item name="android:divider">@color/colorTextOpacity</item>
     </style>
-
-
     <!-- changes the default text colour for the EditTexts -->
     <style name="editTextStyle" parent="android:style/Widget.EditText">
         <item name="android:textColor">@color/colorTextOpacity</item>
     </style>
+    <style name="TextAppearance.FontPath" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">@string/open_sans</item>
+        <item name="android:borderlessButtonStyle">?android:attr/borderlessButtonStyle</item>
+    </style>
 
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/up_animation</item>
+        <item name="android:windowExitAnimation">@anim/down_animation</item>
+    </style>
     <dimen name="radioButtonDialog">10dp</dimen>
 </resources>

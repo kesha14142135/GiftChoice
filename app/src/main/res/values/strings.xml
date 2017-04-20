@@ -23,11 +23,50 @@
     <string name="error_fill_on_the_field">Please, fill on the all field</string>
     <string name="error_сould_not_add_user_to_database">Could not add user to database</string>
     <string name="error_reading_user">Error reading users</string>
-
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
+    <string name="open_sans">fonts/OpenSans-Light.ttf</string>
+    <string name="ID">id</string>
     <string-array name="type">
         <item name="man">Man</item>
         <item name="women">Women</item>
         <item name="child">Child</item>
+    </string-array>
+
+    <string-array name="pictures_for_questions">
+        <item>@drawable/ic_valentines</item>
+        <item>@drawable/ic_sunglasses</item>
+        <item>@drawable/ic_pallet_and_brushes</item>
+        <item>@drawable/ic_books</item>
+        <item>@drawable/ic_teddy_bear</item>
+        <item>@drawable/ic_bicycle</item>
+        <item>@drawable/ic_cosmetics</item>
+        <item>@drawable/ic_long_sleeves_t_shirt</item>
+        <item>@drawable/ic_inflatable_boat</item>
+    </string-array>
+
+    <string-array name="texts_for_questions">
+        <item>Do you wear jewelry?</item>
+        <item>Do you wear accessories?</item>
+        <item>Do you want to be creative?</item>
+        <item>Do you read books?</item>
+        <item>Would you like to receive a toy as a gift?</item>
+        <item>Do you like sports?</item>
+        <item>Do you need something from cosmetics?</item>
+        <item>Do you want something from clothes?</item>
+        <item>Are you interested in hunting or fishing?</item>
+    </string-array>
+
+    <string-array name="hashtags_for_questions">
+        <item>jewelry</item>
+        <item>accessories</item>
+        <item>creative</item>
+        <item>book</item>
+        <item>gift</item>
+        <item>sports</item>
+        <item>cosmetics</item>
+        <item>clothes</item>
+        <item>fishing</item>
     </string-array>
 
     <plurals name="review_day_string">

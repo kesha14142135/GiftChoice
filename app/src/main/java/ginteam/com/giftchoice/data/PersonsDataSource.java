@@ -12,8 +12,6 @@ public interface PersonsDataSource {
 
     void readAll(CallbackPersons callback);
 
-    void addPerson(Person Person);
-
     interface CallbackPersons {
 
         void onSuccess(List<Person> persons);
@@ -21,4 +19,14 @@ public interface PersonsDataSource {
         void onFailure();
     }
 
+    void addPerson(Person person, CallBackNewPerson callBack);
+
+    interface CallBackNewPerson {
+
+        void onSuccess(Long insertId);
+
+        void onFailure();
+    }
+
+    void updateFieldPassedTest(long personId, boolean flag);
 }

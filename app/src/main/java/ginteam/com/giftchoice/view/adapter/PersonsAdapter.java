@@ -1,7 +1,5 @@
 package ginteam.com.giftchoice.view.adapter;
 
-import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,18 +25,16 @@ import ginteam.com.giftchoice.view.callback.CallBackPerson;
 public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.PersonViewHolder> {
 
     private List<Person> mPersons;
-    private CallBackPerson mCallBack;
-    private Context mContext;
+    private CallBackPerson mCallBackPerson;
 
-    public PersonsAdapter(List<Person> persons, Context context, CallBackPerson callBack) {
+    public PersonsAdapter(List<Person> persons, CallBackPerson callBack) {
         mPersons = persons;
-        mContext = context;
-        mCallBack = callBack;
+        mCallBackPerson = callBack;
     }
 
     @Override
     public PersonViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_person,
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.relative_layout_person,
                 parent, false);
         return new PersonViewHolder(view);
     }
@@ -64,22 +60,22 @@ public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.PersonVi
         );
         SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
         holder.mTextViewBirthday.setText(format.format(calendar.getTime()));
-        if (mPersons.get(position).getPassedTheTest() == 0) {
+        if (!mPersons.get(position).getPassedTheTest()) {
             holder.mButtonTestPerson.setVisibility(View.VISIBLE);
             holder.mButtonTestPerson.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    mCallBackPerson.successTest(mPersons.get(position).getId(), mPersons.get(position).getType());
                 }
             });
             holder.mButtonGiftPerson.setVisibility(View.INVISIBLE);
         } else {
             holder.mButtonTestPerson.setVisibility(View.INVISIBLE);
             holder.mButtonGiftPerson.setVisibility(View.VISIBLE);
-            holder.mButtonGiftPerson.setOnClickListener(new View.OnClickListener() {
+            holder.mRelativeLayoutPerson.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    mCallBackPerson.successPerson(mPersons.get(position).getId(), mPersons.get(position).getType());
                 }
             });
         }
@@ -92,7 +88,7 @@ public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.PersonVi
 
     public class PersonViewHolder extends RecyclerView.ViewHolder {
 
-        private RelativeLayout mCardViewPerson;
+        private RelativeLayout mRelativeLayoutPerson;
         private TextView mTextViewName;
         private TextView mTextViewBirthday;
         private Button mButtonTestPerson;
@@ -101,7 +97,7 @@ public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.PersonVi
 
         public PersonViewHolder(View itemView) {
             super(itemView);
-            mCardViewPerson = (RelativeLayout) itemView.findViewById(R.id.card_view_recycler_person);
+            mRelativeLayoutPerson = (RelativeLayout) itemView.findViewById(R.id.relative_layout_recycler_person);
             mTextViewName = (TextView) itemView.findViewById(R.id.text_view_card_person_name);
             mTextViewBirthday = (TextView) itemView.findViewById(R.id.text_view_card_person_birthday);
             mButtonTestPerson = (Button) itemView.findViewById(R.id.button_card_person_test);

@@ -4,8 +4,8 @@ import android.content.Context;
 
 import ginteam.com.giftchoice.R;
 import ginteam.com.giftchoice.contract.NewPersonContract;
-import ginteam.com.giftchoice.data.NewPersonDataBaseSource;
-import ginteam.com.giftchoice.data.NewPersonDataSource;
+import ginteam.com.giftchoice.data.PersonsDataBaseSource;
+import ginteam.com.giftchoice.data.PersonsDataSource;
 import ginteam.com.giftchoice.model.Person;
 
 /**
@@ -16,13 +16,13 @@ public class NewPersonPresenter implements NewPersonContract.Presenter {
 
     private NewPersonContract.View mView;
     private Context mContext;
-    private NewPersonDataSource mDatabase;
+    private PersonsDataSource mDatabase;
 
     @Override
     public void attachView(NewPersonContract.View view) {
         mView = view;
         mContext = view.getContext();
-        mDatabase = new NewPersonDataBaseSource();
+        mDatabase = new PersonsDataBaseSource(view.getContext());
     }
 
     @Override
@@ -40,10 +40,10 @@ public class NewPersonPresenter implements NewPersonContract.Presenter {
                 0 != person.getYear()) {
             mDatabase.addPerson(
                     person,
-                    new NewPersonDataSource.CallBackNewPerson() {
+                    new PersonsDataSource.CallBackNewPerson() {
                         @Override
-                        public void onSuccess() {
-                            mView.successfulAddition();
+                        public void onSuccess(Long insertPersonId) {
+                            mView.successfulAddition(insertPersonId);
                         }
 
                         @Override

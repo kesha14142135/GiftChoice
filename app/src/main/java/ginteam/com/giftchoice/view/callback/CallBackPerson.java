@@ -6,7 +6,7 @@ package ginteam.com.giftchoice.view.callback;
 
 public interface CallBackPerson {
 
-    void successTest(int id, int type);
+    void successTest(long personId, int type);
 
-    void successUser(int id, int type);
+    void successPerson(long personId, int type);
 }

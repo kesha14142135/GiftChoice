@@ -1,19 +1,22 @@
 package ginteam.com.giftchoice.view.activity;
 
-import android.app.DialogFragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+
+import com.mobsandgeeks.saripaar.ValidationError;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import ginteam.com.giftchoice.R;
 import ginteam.com.giftchoice.contract.NewPersonContract;
@@ -21,64 +24,47 @@ import ginteam.com.giftchoice.model.Person;
 import ginteam.com.giftchoice.presenter.NewPersonPresenter;
 import ginteam.com.giftchoice.view.callback.CallBackPersonBirthday;
 import ginteam.com.giftchoice.view.callback.CallBackPersonType;
-import ginteam.com.giftchoice.view.fragment.dialog.TypeDialogFragment;
+import ginteam.com.giftchoice.view.fragment.dialog.TypePersonDialogFragment;
 import ginteam.com.giftchoice.view.fragment.dialog.CalendarDialogFragment;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-
-public class NewPersonActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener, CallBackPersonBirthday, CallBackPersonType, NewPersonContract.View {
-
-    private RelativeLayout mRelativeLayout;
-    private Button mButtonAddPersonStartTest;
-    private Button mButtonAddPerson;
+public class NewPersonActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener, CallBackPersonBirthday, CallBackPersonType, NewPersonContract.View, Validator.ValidationListener {
+    @NotEmpty
     private EditText mEditTextName;
+    @NotEmpty
     private EditText mEditTextType;
+    @NotEmpty
     private EditText mEditTextBirthday;
     private DialogFragment mCalendarDialogFragment;
     private DialogFragment mTypeDialogFragment;
     private Person mPerson;
     private NewPersonContract.Presenter mPresenter;
-    private ImageView mImageBackButton;
     private boolean mFlagTest = false;
+    private Validator mValidator;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_person);
+        updateViewDependencies();
         mPerson = new Person();
-        initializationOfVariables();
         mPresenter = new NewPersonPresenter();
         mPresenter.attachView(this);
     }
 
-    private void initializationOfVariables() {
-        mPresenter = new NewPersonPresenter();
-        mRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_add_person);
-        mButtonAddPerson = (Button) findViewById(R.id.button_add_person);
-        mButtonAddPerson.setOnClickListener(this);
-        mButtonAddPersonStartTest = (Button) findViewById(R.id.button_add_person_start_test);
-        mButtonAddPersonStartTest.setOnClickListener(this);
-        mEditTextName = (EditText) findViewById(R.id.edit_text_person_name);
-        mImageBackButton = (ImageView) findViewById(R.id.image_back_button);
-        mImageBackButton.setOnClickListener(this);
-        mEditTextType = (EditText) findViewById(R.id.edit_text_person_type);
-        mEditTextType.setOnFocusChangeListener(this);
-        mEditTextType.setOnClickListener(this);
-        mEditTextBirthday = (EditText) findViewById(R.id.edit_text_person_birthday);
-        mEditTextBirthday.setOnFocusChangeListener(this);
-        mEditTextBirthday.setOnClickListener(this);
-        mCalendarDialogFragment = CalendarDialogFragment.newInstance();
-        mCalendarDialogFragment.setStyle(R.style.CardView, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
-        mTypeDialogFragment = TypeDialogFragment.newInstance();
-        mTypeDialogFragment.setStyle(R.style.CardView, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.edit_text_person_type: {
                 mTypeDialogFragment.show(
-                        getFragmentManager(),
+                        getSupportFragmentManager(),
                         getResources().getString(R.string.number_dialog)
                 );
                 break;
@@ -89,7 +75,7 @@ public class NewPersonActivity extends AppCompatActivity implements View.OnClick
             }
             case R.id.edit_text_person_birthday: {
                 mCalendarDialogFragment.show(
-                        getFragmentManager(),
+                        getSupportFragmentManager(),
                         getResources().getString(R.string.number_dialog)
                 );
                 break;
@@ -97,12 +83,12 @@ public class NewPersonActivity extends AppCompatActivity implements View.OnClick
             case R.id.button_add_person_start_test: {
                 mFlagTest = true;
                 mPerson.setName(mEditTextName.getText().toString());
-                mPresenter.addPerson(mPerson);
+                mValidator.validate();
                 break;
             }
             case R.id.button_add_person: {
                 mPerson.setName(mEditTextName.getText().toString());
-                mPresenter.addPerson(mPerson);
+                mValidator.validate();
                 break;
             }
 
@@ -115,14 +101,14 @@ public class NewPersonActivity extends AppCompatActivity implements View.OnClick
             switch (v.getId()) {
                 case R.id.edit_text_person_birthday: {
                     mCalendarDialogFragment.show(
-                            getFragmentManager(),
+                            getSupportFragmentManager(),
                             getResources().getString(R.string.number_dialog)
                     );
                     break;
                 }
                 case R.id.edit_text_person_type: {
                     mTypeDialogFragment.show(
-                            getFragmentManager(),
+                            getSupportFragmentManager(),
                             getResources().getString(R.string.number_dialog)
                     );
                     break;
@@ -155,16 +141,65 @@ public class NewPersonActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void showError(String message) {
-        Snackbar.make(mRelativeLayout, message, Snackbar.LENGTH_LONG)
+        Snackbar.make(findViewById(R.id.relative_layout_add_person), message, Snackbar.LENGTH_LONG)
                 .show();
     }
 
     @Override
-    public void successfulAddition() {
+    public void successfulAddition(Long insertIdPerson) {
         if (mFlagTest) {
-            //redirect to screen test
+            Intent intent = new Intent(getContext(), TestActivity.class);
+            intent.putExtra(getResources().getString(R.string.ID), Long.valueOf(insertIdPerson));
+            getContext().startActivity(intent);
+            finish();
         } else {
             onBackPressed();
+        }
+    }
+
+    private void updateViewDependencies() {
+        mPresenter = new NewPersonPresenter();
+
+        findViewById(R.id.button_add_person).setOnClickListener(this);
+        findViewById(R.id.button_add_person_start_test).setOnClickListener(this);
+        findViewById(R.id.image_back_button).setOnClickListener(this);
+
+        mEditTextName = (EditText) findViewById(R.id.edit_text_person_name);
+
+        mEditTextType = (EditText) findViewById(R.id.edit_text_person_type);
+        mEditTextType.setOnFocusChangeListener(this);
+        mEditTextType.setOnClickListener(this);
+
+        mEditTextBirthday = (EditText) findViewById(R.id.edit_text_person_birthday);
+        mEditTextBirthday.setOnFocusChangeListener(this);
+        mEditTextBirthday.setOnClickListener(this);
+
+        mCalendarDialogFragment = CalendarDialogFragment.newInstance();
+        mCalendarDialogFragment.setStyle(R.style.CardView, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
+
+        mTypeDialogFragment = TypePersonDialogFragment.newInstance();
+        mTypeDialogFragment.setStyle(R.style.CardView, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
+
+        mValidator = new Validator(this);
+        mValidator.setValidationListener(this);
+    }
+
+    @Override
+    public void onValidationSucceeded() {
+        mPresenter.addPerson(mPerson);
+    }
+
+    @Override
+    public void onValidationFailed(List<ValidationError> errors) {
+        for (ValidationError error : errors) {
+            View view = error.getView();
+            String message = error.getCollatedErrorMessage(this);
+            if (view instanceof EditText) {
+                ((EditText) view).setError(message);
+            } else {
+                Snackbar.make(findViewById(R.id.relative_layout_add_person), message, Snackbar.LENGTH_LONG)
+                        .show();
+            }
         }
     }
 }

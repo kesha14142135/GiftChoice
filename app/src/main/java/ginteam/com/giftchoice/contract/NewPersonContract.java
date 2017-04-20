@@ -12,7 +12,7 @@ public interface NewPersonContract {
 
     interface View extends BaseContract.View {
 
-        void successfulAddition();
+        void successfulAddition(Long insertPersonId);
     }
 
     interface Presenter extends BaseContract.Presenter<View> {

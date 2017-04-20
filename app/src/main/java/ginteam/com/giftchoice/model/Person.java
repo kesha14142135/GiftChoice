@@ -1,31 +1,29 @@
 package ginteam.com.giftchoice.model;
+
 import com.orm.SugarRecord;
 
 /**
  * Created by sergej on 07.02.17.
  */
-public class Person extends SugarRecord{
-
+public class Person extends SugarRecord {
     private String mName;
     private int mType;
-    private int mPassedTheTest;
+    private boolean mPassedTheTest;
     private int mDay;
     private int mMonth;
     private int mYear;
-    private int mId;
 
     public Person() {
-        this("", 0, 0, 0, 0, 1940, -1);
+
     }
 
-    public Person(String name, int type, int passedTheTest, int day, int month, int year, int id) {
+    public Person(String name, int type, boolean passedTheTest, int day, int month, int year) {
         mName = name;
         mType = type;
         mPassedTheTest = passedTheTest;
         mDay = day;
         mMonth = month;
         mYear = year;
-        mId = id;
     }
 
     public void setName(String name) {
@@ -44,11 +42,11 @@ public class Person extends SugarRecord{
         return mType;
     }
 
-    public int getPassedTheTest() {
+    public boolean getPassedTheTest() {
         return mPassedTheTest;
     }
 
-    public void setPassedTheTest(int passedTheTest) {
+    public void setPassedTheTest(boolean passedTheTest) {
         mPassedTheTest = passedTheTest;
     }
 
@@ -75,14 +73,4 @@ public class Person extends SugarRecord{
     public void setYear(int year) {
         mYear = year;
     }
-
-    public int getIdPerson() {
-        return mId;
-    }
-
-    public void setIdPerson(int id) {
-        mId = id;
-    }
-
-
 }

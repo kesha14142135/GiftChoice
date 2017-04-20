@@ -22,6 +22,30 @@
     <string name="text_toolbar_type">Тип человека</string>
     <string name="error_fill_on_the_field">Пожалуйста, заполните все поля</string>
 
+    <string-array name="text_for_question">
+        <item>Вы носите украшения?</item>
+        <item>Вы носите аксессуары?</item>
+        <item>Вы хотите заниматься творчеством?</item>
+        <item>Вы читаете книги?</item>
+        <item>Хотели бы Вы получить в подарок игрушку?</item>
+        <item>Вам нравится спорт?</item>
+        <item>Вам нужно что-то из косметики?</item>
+        <item>Вы хотите что-то из одежды?</item>
+        <item>Вас интересует охота или рыбалка?</item>
+    </string-array>
+
+    <string-array name="hashtag_for_question">
+        <item>decoration</item>
+        <item>accessories</item>
+        <item>creation</item>
+        <item>book</item>
+        <item>toy</item>
+        <item>sport</item>
+        <item>cosmetics</item>
+        <item>clothes</item>
+        <item>hunting</item>
+    </string-array>
+
     <string-array name="type">
         <item name="man">Мужчина</item>
         <item name="women">Женщина</item>

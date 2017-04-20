@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -34,26 +33,6 @@
             android:text="@string/there_are_no_created_people"
             android:visibility="gone"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-        <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:id="@+id/appbar_home"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="50dp"-->
-        <!--app:elevation="@dimen/elevationAppBar">-->
-
-        <!--<android.support.design.widget.CollapsingToolbarLayout-->
-        <!--android:id="@+id/collapsing_toolbar_home"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:fitsSystemWindows="true"-->
-        <!--app:contentScrim="?attr/colorPrimary"-->
-        <!--app:expandedTitleMarginEnd="@dimen/expandedMarginEnd"-->
-        <!--app:expandedTitleMarginStart="@dimen/expandedMarginStart"-->
-        <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
-
-        <!---->
-        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
-        <!--</android.support.design.widget.AppBarLayout>-->
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floating_action_button_add_home"

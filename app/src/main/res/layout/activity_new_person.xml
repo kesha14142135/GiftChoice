@@ -26,15 +26,15 @@
                 android:src="@drawable/ic_back" />
 
             <Button
-                style="?android:attr/borderlessButtonStyle"
                 android:id="@+id/button_add_person"
+                style="@style/TextAppearance.FontPath"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:background="@color/colorPrimary"
-                android:fontFamily="sans-serif"
                 android:gravity="right|center_vertical"
                 android:minWidth="@dimen/button_cancel_width"
+                android:stateListAnimator="@null"
                 android:text="@string/cancel_button"
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite" />
@@ -55,6 +55,7 @@
             android:id="@+id/text_input_name_person"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:textColorHint="@color/colorWhite"
             app:hintTextAppearance="@style/TextInputColor">
 
@@ -64,7 +65,10 @@
                 android:layout_height="wrap_content"
                 android:cursorVisible="true"
                 android:hint="@string/person_name"
+                android:imeOptions="actionDone"
                 android:minHeight="@dimen/minHeightEditTTextPerson"
+                android:nextFocusDown="@+id/text_input_person_type"
+                android:singleLine="true"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 
@@ -80,6 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/person_type"
+                android:imeOptions="actionNext"
                 android:minHeight="@dimen/minHeightEditTTextPerson"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
@@ -96,6 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/person_birthday"
+                android:imeOptions="actionDone"
                 android:minHeight="@dimen/minHeightEditTTextPerson"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
@@ -109,6 +115,7 @@
         android:layout_margin="@dimen/button_margin_add_person"
         android:background="@drawable/button_border_color"
         android:fontFamily="sans-serif"
+        android:stateListAnimator="@null"
         android:text="@string/button_start_test"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary"

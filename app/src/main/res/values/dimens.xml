@@ -23,7 +23,7 @@
     <dimen name="textButtonDialogCalendar">14sp</dimen>
     <dimen name="button_card_height_gift">30dp</dimen>
     <dimen name="height_text_view">40dp</dimen>
-    <dimen name="height_text_view_title">40dp</dimen>
+    <dimen name="height_text_view_title">50dp</dimen>
     <dimen name="button_cancel_width">100dp</dimen>
     <dimen name="title_margin_right">10dp</dimen>
     <dimen name="titleSizeAddPerson">30sp</dimen>
@@ -33,5 +33,9 @@
     <dimen name="imageTitleHeight">25dp</dimen>
     <dimen name="minHeightEditTTextPerson">60dp</dimen>
     <dimen name="marginTopTitle">30dp</dimen>
-    <dimen name="marginBottomTitle">20dp</dimen>
+    <dimen name="marginBottomTitle">60dp</dimen>
+    <dimen name="radioGroupMarginTop">10dp</dimen>
+    <dimen name="marginTopLinerLayoutTest">50dp</dimen>
+    <dimen name="marginTopButtonYesNoTest">100dp</dimen>
+    <dimen name="margin_bottom_answer">16dp</dimen>
 </resources>

@@ -1,10 +1,13 @@
 package ginteam.com.giftchoice.view.fragment.dialog;
 
-import android.app.DialogFragment;
+
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
@@ -16,26 +19,40 @@ import ginteam.com.giftchoice.view.callback.CallBackPersonType;
  * Created by sergej on 31.03.17.
  */
 
-public class TypeDialogFragment extends DialogFragment implements View.OnClickListener {
-    private Button mButtonNumberOk;
-    private Button mButtonNumberCancel;
+public class TypePersonDialogFragment extends DialogFragment implements View.OnClickListener {
     private RadioGroup mRadioGroup;
+    private CallBackPersonType mCallback;
 
+    public static TypePersonDialogFragment newInstance() {
+        return new TypePersonDialogFragment();
+    }
 
-    public static TypeDialogFragment newInstance() {
-        return new TypeDialogFragment();
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mCallback = (CallBackPersonType) context;
+        } catch (ClassCastException ignored) {}
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_type, container, false);
-        mButtonNumberOk = (Button) view.findViewById(R.id.button_add_type_person);
-        mButtonNumberOk.setOnClickListener(this);
-        mButtonNumberCancel = (Button) view.findViewById(R.id.button_cancel_type_person);
-        mButtonNumberCancel.setOnClickListener(this);
+        Button buttonNumberOk = (Button) view.findViewById(R.id.button_add_type_person);
+        buttonNumberOk.setOnClickListener(this);
+        Button buttonNumberCancel = (Button) view.findViewById(R.id.button_cancel_type_person);
+        buttonNumberCancel.setOnClickListener(this);
         mRadioGroup = (RadioGroup) view.findViewById(R.id.radio_group_type);
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle arg0) {
+        super.onActivityCreated(arg0);
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        getDialog().getWindow()
+                .getAttributes().windowAnimations = R.style.DialogAnimation;
     }
 
     @Override
@@ -54,13 +71,14 @@ public class TypeDialogFragment extends DialogFragment implements View.OnClickLi
                         type = 2;
                         break;
                 }
-                CallBackPersonType activity = (CallBackPersonType) getActivity();
-                activity.onFinishTypeDialog(type);
-                this.dismiss();
+                if (mCallback != null) {
+                    mCallback.onFinishTypeDialog(type);
+                }
+                dismiss();
                 break;
             }
             case R.id.button_cancel_type_person: {
-                this.dismiss();
+                dismiss();
                 break;
             }
         }

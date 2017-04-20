@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_layout_add_person"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/liner_layout_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/marginLayoutAddPerson"
+        android:layout_marginRight="@dimen/marginLayoutAddPerson"
+        android:layout_marginTop="@dimen/marginTopLinerLayoutTest"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_view_question_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginBottomTitle"
+            android:layout_marginTop="@dimen/marginTopTitle"
+            android:text="@string/text_title_add_person"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/titleSizeAddPerson" />
+
+        <ImageView
+            android:id="@+id/image_view_question"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_valentines" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/marginLayoutAddPerson"
+        android:layout_marginRight="@dimen/marginLayoutAddPerson"
+        android:layout_marginTop="@dimen/marginTopButtonYesNoTest"
+        android:layout_marginBottom="@dimen/margin_bottom_answer"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_no_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height_add_person"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/button_border_color_inversion"
+            android:fontFamily="sans-serif"
+            android:text="@string/button_no"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/titleSize"
+            android:textStyle="normal"
+            android:typeface="sans" />
+
+        <Button
+            android:id="@+id/button_yes_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height_add_person"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_border_color_inversion"
+            android:fontFamily="sans-serif"
+            android:text="@string/button_yes"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/titleSize"
+            android:textStyle="normal"
+            android:typeface="sans" />
+    </RelativeLayout>
+</RelativeLayout>
